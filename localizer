@@ -1,0 +1,40 @@
+# Check if running in bash
+if [[ ! "$0" == "bash" ]]; then
+	echo "Unable to launch localizer: You're not running eBash in bash environment."
+	exit 9
+fi
+
+# Check if eBash is already installed
+if [[ ! -z "$EBVERSION" ]] && [[ -z "$1" ]]; then
+	echo "eBash is already installed. Add version parameter to override this error."
+	return
+fi
+
+# Actual localizing
+export GIT_LATEST_URL="";
+export GIT_RELEASE_URL="";
+
+echo "Preparing eBash environment..."
+echo "PWD: $(pwd)"
+echo "File Location: $(dirname "$0")"
+
+if [[ -z "$1" ]]; then
+	export runtimeVersionRequest="latest"
+else
+	export runtimeVersionRequest="$1"
+fi
+
+echo "Requested Runtime: $runtimeVersionRequest"
+
+if [[ "$runtimeVersionRequest" == "latest" ]]; then
+	echo "Downloading latest version data..."
+	export runtimeVersionRequest=$(curl -Ls "$GIT_LATEST_URL")
+fi
+echo "Downloading runtime: $runtimeVersionRequest"
+curl -L --progress-bar "${GIT_RELEASE_URL}eBash2_${runtimeVersionRequest}.zip" -o "$(dirname "$0")"
+
+echo "Unpacking..."
+unzip -q "$(dirname "$0")/eBash2_${runtimeVersionRequest}.zip" -d "$(pwd)"
+
+unset GIT_LATEST_URL GIT_RELEASE_URL runtimeVersionRequest
+echo "Done!"

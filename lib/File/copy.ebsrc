@@ -1,0 +1,39 @@
+#!/bin/bash
+@import Foundation/string
+@import Foundation/exception
+@import File/check
+
+function File.copyFile() {
+	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+		syntaxException "File.copyFile - Parameters are not properly given."
+	else
+		if [[ $(File.isFile "$1") ]]; then
+			if [[ $(File.isDirectory "$2") ]]; then
+				cp "$3" "$1" "$2"
+			else
+				runtimeException "File.copyFile - No such directory."
+			fi
+		else
+			runtimeException "File.copyFile - No such file."
+		fi
+	fi
+}
+
+function File.copyDirectory() {
+	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+		syntaxException "File.copyDirectory - Parameters are not properly given."
+	else
+		if [[ $(File.isDirectory "$1") ]]; then
+			if [[ $(File.isDirectory "$2") ]]; then
+				cp -r "$1" "$2"
+			else
+				runtimeException "File.copyDirectory - No such directory. (Destination)"
+			fi
+		else
+			runtimeException "File.copyDirectory - No such directory. (Source)"
+		fi
+	fi
+}
+
+export -f File.copyFile
+export -f File.copyDirectory

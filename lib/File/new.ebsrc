@@ -1,0 +1,49 @@
+#!/bin/bash
+@import Foundation/exception
+@import Foundation/string
+@import Foundation/out
+@import File/check
+
+function File.newFile() {
+	if [[ $(isNull "$1") ]]; then
+		syntaxException "File.newFile - Parameter is not properly given."
+	else
+		if [[ $(File.isFile "$1") ]]; then
+			runtimeException "File.newFile - File already exists."
+		else
+			echo "$2" > "$1"
+		fi
+	fi
+}
+
+function File.newDirectory() {
+	if [[ $(isNull "$1") ]]; then
+		syntaxException "File.newDirectory - Parameter is not properly given."
+	else
+		if [[ $(File.isFile "$1") ]]; then
+			runtimeException "File.newDirectory - Directory already exists."
+		else
+			mkdir "-p$2" "$1"
+			unset param
+		fi
+	fi
+}
+
+function File.write() {
+	if [[ $(isNull "$1") ]]; then
+		syntaxException "File.write - Parameter is not properly given."
+	else
+		File.newFile "$1" "$2"
+	fi
+}
+
+function File.append() {
+	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+		syntaxException "File.append - Parameter is not properly given."
+	else
+		File.newFile "$1" "$2"
+	fi
+}
+
+export -f File.newFile
+export -f File.newDirectory

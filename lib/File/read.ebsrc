@@ -1,0 +1,18 @@
+#!/bin/bash
+@import Foundation/exception
+@import Foundation/string
+@import File/check
+
+function File.readStringData() {
+	if [[ $(isNull "$1") ]]; then
+		syntaxException "File.readStringData - Parameter is not properly given."
+	else
+		if [[ ! $(File.isFile "$2") ]]; then
+			runtimeException "File.readStringData - File does not exist."
+		else
+			cat "$1"
+		fi
+	fi
+}
+
+export -f File.readStringData
