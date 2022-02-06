@@ -40,6 +40,6 @@ fi
 
 unset ORIGH 2>/dev/null
 
-if [[ "$1" == "printprepcomplete" ]]; then
+if [[ "$EBASH_PREP_PRINT" == "1" ]]; then
 	echo "eBash environment preparation successful."
 fi
