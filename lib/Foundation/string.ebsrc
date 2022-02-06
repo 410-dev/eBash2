@@ -7,12 +7,35 @@ function isNull() {
 	unset testfor
 }
 
-function replaceStringOccurrences() {
-	if [[ -z "$1" ]] && [[ -z "$2" ]] && [[ -z "$3" ]]; then
-		syntaxException "replaceStringOccurrences - Not enough parameters given."
+function replaceString() {
+	if [[ $(isNull "$1") ]] && [[ $(isNull "$2") ]] && [[ $(isNull "$3") ]]; then
+		syntaxException "replaceString - Not enough parameters given."
 	fi
-	echo "$1" | sed "s/$2/$3/g"
+	export buffer="$(echo "$1" | sed "s/$2/$3/g")"
+	if [[ $(isNull "$4") ]]; then
+		echo "$buffer"
+		unset buffer
+	else
+		export $4="$buffer"
+		unset buffer
+	fi
+}
+
+function stringLength() {
+	if [[ $(isNull "$1") ]]; then
+		syntaxException "stringLength - Not enough parameters given."
+	fi
+	export buffer1="$1"
+	export buffer2="$(echo ${#buffer1})"
+	if [[ $(isNull "$2") ]]; then
+		echo "$buffer2"
+		unset buffer1 buffer2
+	else
+		export $2="$buffer2"
+		unset buffer1 buffer2
+	fi
 }
 
 export -f isNull
-export -f replaceStringOccurrences
+export -f replaceString
+export -f stringLength
