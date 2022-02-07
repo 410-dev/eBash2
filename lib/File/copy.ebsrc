@@ -4,7 +4,7 @@
 @import File/check
 
 function File.copyFile() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.copyFile - Parameters are not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
@@ -20,7 +20,7 @@ function File.copyFile() {
 }
 
 function File.copyDirectory() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.copyDirectory - Parameters are not properly given."
 	else
 		if [[ $(File.isDirectory "$1") ]]; then

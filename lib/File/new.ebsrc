@@ -5,7 +5,7 @@
 @import File/check
 
 function File.newFile() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.newFile - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
@@ -17,7 +17,7 @@ function File.newFile() {
 }
 
 function File.newDirectory() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.newDirectory - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
@@ -30,7 +30,7 @@ function File.newDirectory() {
 }
 
 function File.write() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.write - Parameter is not properly given."
 	else
 		File.newFile "$1" "$2"
@@ -38,7 +38,7 @@ function File.write() {
 }
 
 function File.append() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.append - Parameter is not properly given."
 	else
 		File.newFile "$1" "$2"

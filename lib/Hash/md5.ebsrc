@@ -3,7 +3,7 @@
 @import Foundation/string
 
 function Hash.stringToMD5() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "Hash.stringToMD5 - Parameter is not properly given."
 	else
 		md5 -qs "$1"
@@ -11,7 +11,7 @@ function Hash.stringToMD5() {
 }
 
 function Hash.fileToMD5() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "Hash.fileToMD5 - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then 

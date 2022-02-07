@@ -3,7 +3,7 @@
 @import Foundation/string
 
 function File.exists() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.exists - Parameter is not properly given."
 	else
 		if [[ -e "$1" ]]; then
@@ -13,7 +13,7 @@ function File.exists() {
 }
 
 function File.isDirectory() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.isDirectory - Parameter is not properly given."
 	else
 		if [[ -d "$1" ]]; then
@@ -23,7 +23,7 @@ function File.isDirectory() {
 }
 
 function File.isFile() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.isFile - Parameter is not properly given."
 	else
 		if [[ -f "$1" ]]; then

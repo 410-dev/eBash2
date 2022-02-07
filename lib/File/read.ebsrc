@@ -4,7 +4,7 @@
 @import File/check
 
 function File.readStringData() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.readStringData - Parameter is not properly given."
 	else
 		if [[ ! $(File.isFile "$2") ]]; then

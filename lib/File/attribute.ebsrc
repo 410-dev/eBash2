@@ -4,7 +4,7 @@
 @import File/check
 
 function File.setHidden() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.setHidden - Parameters are not properly given."
 	else
 		if [[ $(File.exists "$2") ]]; then
@@ -21,7 +21,7 @@ function File.setHidden() {
 }
 
 function File.relocate() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.relocate - Parameters are not properly given."
 	else
 		if [[ $(File.exists "$2") ]]; then
@@ -35,7 +35,7 @@ function File.relocate() {
 }
 
 function File.rename() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.rename - Parameters are not properly given."
 	else
 		File.relocate "$1" "$2"

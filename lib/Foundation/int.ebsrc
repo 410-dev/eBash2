@@ -1,12 +1,12 @@
 #!/bin/bash
 function add() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Addition operation"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
 		export buffer=$(($1 + $2))
-		if [[ ! $(isNull $3) ]]; then
+		if [[ ! $(String.isNull $3) ]]; then
 			export $3=$buffer
 			declare -i $3
 		else
@@ -16,13 +16,13 @@ function add() {
 }
 
 function subtract() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Subtraction operation"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
 		export buffer=$(($1 - $2))
-		if [[ ! $(isNull $3) ]]; then
+		if [[ ! $(String.isNull $3) ]]; then
 			export $3=$buffer
 			declare -i $3
 		else
@@ -32,13 +32,13 @@ function subtract() {
 }
 
 function multiply() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Multiplication operation"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
 		export buffer=$(($1 * $2))
-		if [[ ! $(isNull $3) ]]; then
+		if [[ ! $(String.isNull $3) ]]; then
 			export $3=$buffer
 			declare -i $3
 		else
@@ -48,7 +48,7 @@ function multiply() {
 }
 
 function divide() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Division operation"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
@@ -59,7 +59,7 @@ function divide() {
 			@exception_
 		else
 			export buffer=$(($1 / $2))
-			if [[ ! $(isNull $3) ]]; then
+			if [[ ! $(String.isNull $3) ]]; then
 				export $3=$buffer
 				declare -i $3
 			else
@@ -70,7 +70,7 @@ function divide() {
 }
 
 function int() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
@@ -81,12 +81,12 @@ function int() {
 }
 
 function increment() {
-	if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
-		if [[ $(isNull "$3") ]]; then
+		if [[ $(String.isNull "$3") ]]; then
 			export incrementer=$3
 		else
 			export incrementer=1

@@ -3,10 +3,10 @@
 @import File
 
 function Application.setData() {
-	if [[ $(isNull "$APPLICATION_CONTEXT") ]]; then
+	if [[ $(String.isNull "$APPLICATION_CONTEXT") ]]; then
 		syntaxException "Application.setData - Context not given."
 	else
-		if [[ $(isNull "$1") ]] || [[ $(isNull "$2") ]]; then
+		if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 			syntaxException "Application.setData - Either key or / and value is not given."
 		else
 			File.createDirectory ~/Library/Application\ Support/"$APPLICATION_CONTEXT"/defaults
@@ -19,10 +19,10 @@ function Application.setData() {
 }
 
 function Application.getData() {
-	if [[ $(isNull "$APPLICATION_CONTEXT") ]]; then
+	if [[ $(String.isNull "$APPLICATION_CONTEXT") ]]; then
 		syntaxException "Application.setData - Context not given."
 	else
-		if [[ $(isNull "$1") ]]; then
+		if [[ $(String.isNull "$1") ]]; then
 			syntaxException "Application.getData - Key is not given."
 		else
 			if [[ $(File.isFile ~/Library/Application\ Support/"$APPLICATION_CONTEXT"/defaults/"$(md5 -qs "$1")") ]]; then

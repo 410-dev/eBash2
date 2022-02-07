@@ -1,5 +1,5 @@
 #!/bin/bash
-function isNull() {
+function String.isNull() {
 	export testfor="$1"
 	if [[ -z "$testfor" ]] || [[ "$testfor" == "$NULL" ]]; then
 		echo "true"
@@ -10,9 +10,10 @@ function isNull() {
 function replaceString() {
 	if [[ $(isNull "$1") ]] && [[ $(isNull "$2") ]] && [[ $(isNull "$3") ]]; then
 		syntaxException "replaceString - Not enough parameters given."
+	if [[ $(String.isNull "$1") ]] && [[ $(String.isNull "$2") ]] && [[ $(String.isNull "$3") ]]; then
 	fi
 	export buffer="$(echo "$1" | sed "s/$2/$3/g")"
-	if [[ $(isNull "$4") ]]; then
+	if [[ $(String.isNull "$4") ]]; then
 		echo "$buffer"
 		unset buffer
 	else
@@ -22,12 +23,12 @@ function replaceString() {
 }
 
 function stringLength() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "stringLength - Not enough parameters given."
 	fi
 	export buffer1="$1"
 	export buffer2="$(echo ${#buffer1})"
-	if [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$2") ]]; then
 		echo "$buffer2"
 		unset buffer1 buffer2
 	else
@@ -36,6 +37,6 @@ function stringLength() {
 	fi
 }
 
-export -f isNull
 export -f replaceString
+export -f String.isNull
 export -f stringLength

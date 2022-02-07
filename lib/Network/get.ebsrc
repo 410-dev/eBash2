@@ -4,7 +4,7 @@
 @import File/check
 
 function Network.getHTML() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "Network.getHTML - URL not passed correctly."
 	else
 		curl -Ls "$1"
@@ -12,10 +12,10 @@ function Network.getHTML() {
 }
 
 function Network.saveDocument() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "Network.saveDocument - URL not passed correctly."
 	fi
-	if [[ $(isNull "$2") ]]; then
+	if [[ $(String.isNull "$2") ]]; then
 		syntaxException "Network.saveDocument - Save point not passed correctly."
 	fi
 	if [[ $(File.isFile "$1") ]]; then

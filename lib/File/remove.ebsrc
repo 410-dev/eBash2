@@ -5,7 +5,7 @@
 @import File/check
 
 function File.removeFile() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.removeFile - Parameter is not properly given."
 	else
 		if [[ ! $(File.isFile "$1") ]]; then
@@ -17,7 +17,7 @@ function File.removeFile() {
 }
 
 function File.removeDirectory() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.removeDirectory - Parameter is not properly given."
 	else
 		if [[ ! $(File.isDirectory "$1") ]]; then
@@ -29,7 +29,7 @@ function File.removeDirectory() {
 }
 
 function File.remove() {
-	if [[ $(isNull "$1") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.remove - Parameter is not properly given."
 	else
 		if [[ ! $(File.exists "$1") ]]; then
