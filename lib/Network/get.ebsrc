@@ -7,7 +7,7 @@ function Network.getHTML() {
 	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "Network.getHTML - URL not passed correctly."
 	else
-		export buffer=$(curl -Ls "$1")
+		export buffer="$(curl -Ls "$1")"
 		if [[ $(String.isNull "$2") ]]; then
 			echo "$buffer"
 		else
