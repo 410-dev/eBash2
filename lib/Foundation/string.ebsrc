@@ -38,9 +38,6 @@ function String.length() {
 
 function String.isEmpty() {
 	if [[ $(String.isNull "$1") ]]; then
-		syntaxException "String.isEmpty - Not enough parameters given."
-	fi
-	if [[ $(String.length "$1") == 0 ]]; then
 		echo "true"
 	fi
 }
