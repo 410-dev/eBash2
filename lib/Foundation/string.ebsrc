@@ -7,9 +7,9 @@ function String.isNull() {
 	unset testfor
 }
 
-function stringReplace() {
+function String.replace() {
 	if [[ $(String.isNull "$1") ]] && [[ $(String.isNull "$2") ]] && [[ $(String.isNull "$3") ]]; then
-		syntaxException "stringReplace - Not enough parameters given."
+		syntaxException "String.replace - Not enough parameters given."
 	fi
 	export buffer="$(echo "$1" | sed "s/$2/$3/g")"
 	if [[ $(String.isNull "$4") ]]; then
@@ -21,9 +21,9 @@ function stringReplace() {
 	fi
 }
 
-function stringLength() {
+function String.length() {
 	if [[ $(String.isNull "$1") ]]; then
-		syntaxException "stringLength - Not enough parameters given."
+		syntaxException "String.length - Not enough parameters given."
 	fi
 	export buffer1="$1"
 	export buffer2="$(echo ${#buffer1})"
@@ -36,36 +36,36 @@ function stringLength() {
 	fi
 }
 
-function isEmpty() {
+function String.isEmpty() {
 	if [[ $(String.isNull "$1") ]]; then
-		syntaxException "isEmpty - Not enough parameters given."
+		syntaxException "String.isEmpty - Not enough parameters given."
 	fi
-	if [[ $(stringLength "$1") == 0 ]]; then
+	if [[ $(String.length "$1") == 0 ]]; then
 		echo "true"
 	fi
 }
 
-function stringContains() {
+function String.contains() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
-		syntaxException "stringContains - Not enough parameters given."
+		syntaxException "String.contains - Not enough parameters given."
 	fi
 	if [[ ! -z "$(echo "$1" | grep "$2")" ]]; then
 		echo "true"
 	fi
 }
 
-function stringEndsWith() {
+function String.endsWith() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
-		syntaxException "stringEndsWith - Not enough parameters given."
+		syntaxException "String.endsWith - Not enough parameters given."
 	fi
 	if [[ "$1" == *"$2" ]]; then
 		echo "true"
 	fi
 }
 
-function stringStartsWith() {
+function String.startsWith() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
-		syntaxException "stringStartsWith - Not enough parameters given."
+		syntaxException "String.startsWith - Not enough parameters given."
 	fi
 	if [[ "$1" == "$2"* ]]; then
 		echo "true"
@@ -73,9 +73,9 @@ function stringStartsWith() {
 }
 
 export -f String.isNull
-export -f stringReplace
-export -f stringLength
-export -f isEmpty
-export -f stringContains
-export -f stringStartsWith
-export -f stringEndsWith
+export -f String.replace
+export -f String.length
+export -f String.isEmpty
+export -f String.contains
+export -f String.startsWith
+export -f String.endsWith
