@@ -7,10 +7,9 @@ function String.isNull() {
 	unset testfor
 }
 
-function replaceString() {
-	if [[ $(isNull "$1") ]] && [[ $(isNull "$2") ]] && [[ $(isNull "$3") ]]; then
-		syntaxException "replaceString - Not enough parameters given."
+function stringReplace() {
 	if [[ $(String.isNull "$1") ]] && [[ $(String.isNull "$2") ]] && [[ $(String.isNull "$3") ]]; then
+		syntaxException "stringReplace - Not enough parameters given."
 	fi
 	export buffer="$(echo "$1" | sed "s/$2/$3/g")"
 	if [[ $(String.isNull "$4") ]]; then
@@ -37,6 +36,46 @@ function stringLength() {
 	fi
 }
 
-export -f replaceString
+function isEmpty() {
+	if [[ $(String.isNull "$1") ]]; then
+		syntaxException "isEmpty - Not enough parameters given."
+	fi
+	if [[ $(stringLength "$1") == 0 ]]; then
+		echo "true"
+	fi
+}
+
+function stringContains() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		syntaxException "stringContains - Not enough parameters given."
+	fi
+	if [[ ! -z "$(echo "$1" | grep "$2")" ]]; then
+		echo "true"
+	fi
+}
+
+function stringEndsWith() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		syntaxException "stringEndsWith - Not enough parameters given."
+	fi
+	if [[ "$1" == *"$2" ]]; then
+		echo "true"
+	fi
+}
+
+function stringStartsWith() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		syntaxException "stringStartsWith - Not enough parameters given."
+	fi
+	if [[ "$1" == "$2"* ]]; then
+		echo "true"
+	fi
+}
+
 export -f String.isNull
+export -f stringReplace
 export -f stringLength
+export -f isEmpty
+export -f stringContains
+export -f stringStartsWith
+export -f stringEndsWith
