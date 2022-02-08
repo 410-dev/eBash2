@@ -9,7 +9,7 @@ function File.removeFile() {
 		syntaxException "File.removeFile - Parameter is not properly given."
 	else
 		if [[ ! $(File.isFile "$1") ]]; then
-			runtimeException "File.removeFile - File does not exist."
+			runtimeException "File.removeFile - File does not exist: $1"
 		else
 			rm -f "$1"
 		fi
@@ -21,7 +21,7 @@ function File.removeDirectory() {
 		syntaxException "File.removeDirectory - Parameter is not properly given."
 	else
 		if [[ ! $(File.isDirectory "$1") ]]; then
-			runtimeException "File.removeDirectory - Directory does not exist."
+			runtimeException "File.removeDirectory - Directory does not exist: $1"
 		else
 			rm -rf "$1"
 		fi
@@ -33,7 +33,7 @@ function File.remove() {
 		syntaxException "File.remove - Parameter is not properly given."
 	else
 		if [[ ! $(File.exists "$1") ]]; then
-			runtimeException "File.remove - Nothing exists."
+			runtimeException "File.remove - Nothing exists: $1"
 			exit
 		else
 			rm -rf "$1"

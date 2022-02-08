@@ -9,7 +9,7 @@ function File.newFile() {
 		syntaxException "File.newFile - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
-			runtimeException "File.newFile - File already exists."
+			runtimeException "File.newFile - File already exists: $1"
 		else
 			echo "$2" > "$1"
 		fi
@@ -21,7 +21,7 @@ function File.newDirectory() {
 		syntaxException "File.newDirectory - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
-			runtimeException "File.newDirectory - Directory already exists."
+			runtimeException "File.newDirectory - Directory already exists: $1"
 		else
 			mkdir "-p$2" "$1"
 			unset param

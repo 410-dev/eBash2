@@ -11,26 +11,26 @@ function File.copyFile() {
 			if [[ $(File.isDirectory "$2") ]]; then
 				cp "$3" "$1" "$2"
 			else
-				runtimeException "File.copyFile - No such directory."
+				runtimeException "File.copyFile - No such directory: $1"
 			fi
 		else
-			runtimeException "File.copyFile - No such file."
+			runtimeException "File.copyFile - No such file: $1"
 		fi
 	fi
 }
 
 function File.copyDirectory() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
-		syntaxException "File.copyDirectory - Parameters are not properly given."
+		syntaxException "File.copyDirectory - Parameters are not properly given: $1"
 	else
 		if [[ $(File.isDirectory "$1") ]]; then
 			if [[ $(File.isDirectory "$2") ]]; then
 				cp -r "$1" "$2"
 			else
-				runtimeException "File.copyDirectory - No such directory. (Destination)"
+				runtimeException "File.copyDirectory - No such directory. (Destination): $1"
 			fi
 		else
-			runtimeException "File.copyDirectory - No such directory. (Source)"
+			runtimeException "File.copyDirectory - No such directory. (Source): $1"
 		fi
 	fi
 }
