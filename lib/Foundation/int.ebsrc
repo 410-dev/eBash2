@@ -104,25 +104,41 @@ function increment() {
 
 function isFrontGreater() {
 	if [[ $1 -gt $2 ]]; then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 function isBackGreater() {
 	if [[ $2 -gt $1 ]]; then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 function isFrontLesser() {
 	if [[ $1 -lt $2 ]]; then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 function isBackLesser() {
 	if [[ $2 -lt $1 ]]; then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 

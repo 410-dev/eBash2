@@ -80,26 +80,42 @@ function dividef() {
 
 function isFrontFloatGreater() {
 	if (( $(echo "$1 > $2" |bc -l) )); then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 
 function isBackFloatGreater() {
 	if (( $(echo "$1 < $2" |bc -l) )); then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 function isFrontFloatLesser() {
 	if (( $(echo "$1 < $2" |bc -l) )); then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 
 function isBackFloatLesser() {
 	if (( $(echo "$1 > $2" |bc -l) )); then
-		echo "true"
+		if [[ $(String.isNull "$3") ]]; then
+			echo "true"
+		else
+			export $3="true"
+		fi
 	fi
 }
 

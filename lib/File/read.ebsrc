@@ -10,7 +10,11 @@ function File.readStringData() {
 		if [[ ! $(File.isFile "$1") ]]; then
 			runtimeException "File.readStringData - File does not exist: $1"
 		else
-			cat "$1"
+			if [[ $(String.isNull "$2") ]]; then
+				cat "$1"
+			else
+				export $2="$(cat "$1")"
+			fi
 		fi
 	fi
 }
