@@ -69,6 +69,15 @@ function String.startsWith() {
 	fi
 }
 
+function String.split() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]] || [[ $(String.isNull "$3") ]]; then
+		syntaxException "String.split - Not enough parameters given."
+	fi
+	IFS="$2" read -ra $3 <<< "$1"
+}
+
+
+export -f String.split
 export -f String.isNull
 export -f String.replace
 export -f String.length
