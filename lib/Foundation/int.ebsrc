@@ -1,4 +1,7 @@
 #!/bin/bash
+
+@import Foundation/string
+
 function add() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Addition operation"

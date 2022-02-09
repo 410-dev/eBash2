@@ -1,13 +1,15 @@
 #!/bin/bash
 
+@import Foundation/string
+
 export secureInputSalt=""
 
 function input() {
-	if [[ ! -z "$1" ]] || [[ "$1" == $NULL ]]; then
+	if [[ ! $(String.isNull "$1") ]]; then
 		echo -n "$1"
 	fi
 	read return
-	if [[ ! -z "$2" ]]; then
+	if [[ ! $(String.isNull "$2") ]]; then
 		export $2="$return"
 	else
 		echo "$return"
@@ -15,13 +17,13 @@ function input() {
 }
 
 function secureInput() {
-	if [[ ! -z "$1" ]] || [[ "$1" == $NULL ]]; then
+	if [[ ! $(String.isNull "$1") ]]; then
 		echo -n "$1"
 	fi
 
 	read -s return
 	export parse=($(echo "${return}${secureInputSalt}" | shasum -a 512))
-	if [[ ! -z "$2" ]]; then
+	if [[ ! $(String.isNull "$2") ]]; then
 		export $2="${parse[0]}"
 	else
 		echo "${parse[0]}"
