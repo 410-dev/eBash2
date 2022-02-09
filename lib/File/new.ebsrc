@@ -47,4 +47,6 @@ function File.append() {
 
 export -f File.newFile
 export -f File.createDirectory
+export -f File.write
+export -f File.append
 
