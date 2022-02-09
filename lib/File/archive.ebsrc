@@ -47,7 +47,7 @@ function File.decompress() {
 		if [[ ! $(File.isFile "$1") ]]; then
 			runtimeException "File.decompress - Compressed zip file does not exist: $1"
 		else
-			File.newDirectory "$2"
+			File.createDirectory "$2"
 			unzip -o -q "$1" -d "$2"
 		fi
 	fi

@@ -16,12 +16,12 @@ function File.newFile() {
 	fi
 }
 
-function File.newDirectory() {
+function File.createDirectory() {
 	if [[ $(String.isNull "$1") ]]; then
-		syntaxException "File.newDirectory - Parameter is not properly given."
+		syntaxException "File.createDirectory - Parameter is not properly given."
 	else
 		if [[ $(File.isFile "$1") ]]; then
-			runtimeException "File.newDirectory - Directory already exists: $1"
+			runtimeException "File.createDirectory - Directory already exists: $1"
 		else
 			mkdir "-p$2" "$1"
 			unset param
@@ -46,4 +46,5 @@ function File.append() {
 }
 
 export -f File.newFile
-export -f File.newDirectory
+export -f File.createDirectory
+
