@@ -31,16 +31,6 @@ if [[ "$runtimeVersionRequest" == "latest" ]]; then
 	export runtimeVersionRequest=$(curl -Ls "$GIT_LATEST_URL")
 fi
 
-echo "To save, the tool needs superuser permission."
-sudo echo -n ""
-if [[ $? == 0 ]]; then
-	echo "Granted."
-else
-	echo "Failed granting superuser permission."
-	unset GIT_LATEST_URL GIT_RELEASE_URL runtimeVersionRequest
-	exit 7
-fi
-
 echo "Downloading runtime: $runtimeVersionRequest"
 sudo curl -L --progress-bar "${GIT_RELEASE_URL}/${runtimeVersionRequest}/eBash2-${runtimeVersionRequest}.zip" -o "/tmp/ebash2.zip"
 if [[ ! $? == 0 ]]; then
@@ -56,6 +46,15 @@ fi
 
 if [[ -z "$2" ]]; then
 	export INSTALLDIR="/usr/local/eBash2"
+	echo "To save, the tool needs superuser permission."
+	sudo echo -n ""
+	if [[ $? == 0 ]]; then
+		echo "Granted."
+	else
+		echo "Failed granting superuser permission."
+		unset GIT_LATEST_URL GIT_RELEASE_URL runtimeVersionRequest INSTALLDIR
+		exit 7
+	fi
 else
 	export INSTALLDIR="$2"
 fi
