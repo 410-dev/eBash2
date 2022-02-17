@@ -41,7 +41,11 @@ function File.append() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		syntaxException "File.append - Parameter is not properly given."
 	else
-		File.newFile "$1" "$2"
+		if [[ ! $(File.isFile "$1") ]]; then
+			runtimeException "File.append - File does not exists: $1"
+		else
+			echo "$2" >> "$1"
+		fi
 	fi
 }
 
