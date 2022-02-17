@@ -17,5 +17,10 @@ function println() {
 	echo -e "$@${C_DEFAULT}"
 }
 
+function updateLastLine() {
+	echo -ne "\r\033[0K$@"
+}
+
 export -f println
 export -f print
+export -f updateLastLine
