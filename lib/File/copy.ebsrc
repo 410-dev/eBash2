@@ -25,7 +25,11 @@ function File.copyDirectory() {
 	else
 		if [[ $(File.isDirectory "$1") ]]; then
 			if [[ $(File.isDirectory "$2") ]]; then
-				cp -r "$1" "$2"
+				if [[ $(String.endsWith "$1" "/") ]]; then
+					cp -r "$1"* "$2"
+				else
+					cp -r "$1" "$2"
+				fi
 			else
 				runtimeException "File.copyDirectory - No such directory. (Destination): $1"
 			fi
