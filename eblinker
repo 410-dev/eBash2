@@ -2,8 +2,7 @@
 
 # Check if running in bash
 if [[ ! "$0" == "bash" ]]; then
-	echo "Unable to launch eBLinker: You're not running eBash in bash environment."
-	exit 9
+	echo "Warning: Seems you're not in bash environment."
 fi
 
 # Will return to parent working directory
