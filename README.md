@@ -10,6 +10,18 @@ eBash 2 is a successor of eBash, with better readability and naming conventions.
 
 
 
+#### Temproary Installation
+
+Some programs may require eBash 2 temporarily. Developers may use temporary installation for such case.
+
+```bash 
+curl -Ls "https://raw.githubusercontent.com/410-dev/eBash2/main/installer.bash" -o "/tmp/installer.bash"
+chmod +x /tmp/installer.bash
+/tmp/installer.bash (version) (path)
+```
+
+
+
 #### Examples
 
 The following code is the example of eBash 2. This code will automatically package the source code as a zip file for release tab.
