@@ -15,9 +15,11 @@ eBash 2 is a successor of eBash, with better readability and naming conventions.
 Some programs may require eBash 2 temporarily. Developers may use temporary installation for such case.
 
 ```bash 
+export EBHOME="/tmp/eBash2"
 curl -Ls "https://raw.githubusercontent.com/410-dev/eBash2/main/installer.bash" -o "/tmp/installer.bash"
 chmod +x /tmp/installer.bash
-/tmp/installer.bash (version) (path)
+/bin/bash /tmp/installer.bash latest "$EBHOME"
+source "$EBHOME/eblinker"
 ```
 
 
