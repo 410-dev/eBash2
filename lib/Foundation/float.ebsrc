@@ -8,7 +8,11 @@ function float() {
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
-		export $1=$(echo "scale=30; $2" | bc)
+		if [[ "$2" == "=" ]] && [[ ! $(String.isNull "$3") ]]; then
+			export $1=$(echo "scale=30; $3" | bc)
+		else
+			export $1=$(echo "scale=30; $2" | bc)
+		fi
 	fi
 }
 
