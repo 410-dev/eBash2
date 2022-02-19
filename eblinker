@@ -11,6 +11,8 @@ export ORIGH="$(pwd)"
 # Set the root directory for eBash
 if [[ -z "$EBHOME" ]]; then
 	export EBHOME="$(dirname "$0")"
+elif [[ ! -z "$1" ]]; then
+	export EBHOME="$1"
 fi
 
 # Load all ebbasesrc using for loop
