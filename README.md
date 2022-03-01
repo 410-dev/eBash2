@@ -12,9 +12,7 @@ eBash 2 is a successor of eBash, with better readability and naming conventions.
 #### Installation
 
 ```bash 
-curl -Ls "https://raw.githubusercontent.com/410-dev/eBash2/main/installer.bash" -o "/tmp/installer.bash"
-chmod +x /tmp/installer.bash
-/bin/bash /tmp/installer.bash latest
+curl -Ls "https://raw.githubusercontent.com/410-dev/eBash2/main/installer.bash" -o "/tmp/installer.bash"; chmod +x /tmp/installer.bash; /bin/bash /tmp/installer.bash latest
 ```
 
 
