@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Check if running in bash
-if [[ -z "$(ps -p $$ | grep "/bin/bas[h]")" ]]; then
-	echo "Unable to launch localizer: You're not running eBash in bash environment."
-	exit 9
-fi
-
 # Check if eBash is already installed
 if [[ -f "/private/etc/paths.d/eBash2" ]] && [[ -z "$1" ]]; then
 	echo "eBash is already installed. Add version parameter to override this error."
