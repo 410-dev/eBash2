@@ -9,6 +9,14 @@
 eBash 2 is a successor of eBash, with better readability and naming conventions. eBash is meant to make Bash easier for people who are new or who are maintaining programs written in Bash. Number of functions increased tremendously, so a simple scripting could be done with the functions from eBash 2.
 
 
+#### Installation
+
+```bash 
+curl -Ls "https://raw.githubusercontent.com/410-dev/eBash2/main/installer.bash" -o "/tmp/installer.bash"
+chmod +x /tmp/installer.bash
+/bin/bash /tmp/installer.bash latest
+```
+
 
 #### Temproary Installation
 
