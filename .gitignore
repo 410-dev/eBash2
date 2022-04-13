@@ -6,3 +6,4 @@ translator/sample/*
 translator/bin/*
 *.jar
 .vscode/*
+translator/.vscode/settings.json
