@@ -16,6 +16,14 @@ function File.newFile() {
 	fi
 }
 
+function File.overwrite() {
+	if [[ $(String.isNull "$1") ]]; then
+		syntaxException "File.overwrite - Parameter is not properly given."
+	else
+		echo "$2" > "$1"
+	fi
+}
+
 function File.createDirectory() {
 	if [[ $(String.isNull "$1") ]]; then
 		syntaxException "File.createDirectory - Parameter is not properly given."
@@ -51,6 +59,7 @@ function File.append() {
 
 export -f File.newFile
 export -f File.createDirectory
+export -f File.overwrite
 export -f File.write
 export -f File.append
 
