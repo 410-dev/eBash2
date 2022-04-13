@@ -64,3 +64,11 @@ println "Done!"
 
 ```
 
+
+#### Native Translator (WIP)
+
+Since the mechanism of eBash2 runtime is not as efficient as the native bash script, an eBash2 to native bash translator using Java is currently under development.
+It dramatically increases the script size for sure, but is uncertain about the performance.
+
+[Check it out from here.](https://github.com/410-dev/eBash2-translator)
+
