@@ -8,8 +8,18 @@ function float() {
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
+		if [[ $(String.isNull "$2") ]] && [[ ! $(String.contains "$1" "=") ]]; then
+			export _EBASH_EXCEPTION="Float declaration"
+			export _EBASH_EXCPETION_TYPE="Syntax"
+			@exception_
+		fi
+
 		if [[ "$2" == "=" ]] && [[ ! $(String.isNull "$3") ]]; then
 			export $1=$(echo "scale=30; $3" | bc)
+		elif [[ $(String.contains "$1" "=") ]]; then
+			String.split "$1" "=" vsplit
+			export ${vsplit[0]}=$(echo "scale=30; ${vsplit[1]}" | bc)
+			unset vsplit
 		else
 			export $1=$(echo "scale=30; $2" | bc)
 		fi
@@ -122,7 +132,6 @@ function isBackFloatLesser() {
 		fi
 	fi
 }
-
 
 export -f float
 export -f addf
