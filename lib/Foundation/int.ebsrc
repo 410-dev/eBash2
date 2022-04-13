@@ -73,17 +73,30 @@ function divide() {
 }
 
 function int() {
-	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+	if [[ $(String.isNull "$1") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
+		if [[ $(String.isNull "$2") ]] && [[ ! $(String.contains "$1" "=") ]]; then
+			export _EBASH_EXCEPTION="Integer declaration"
+			export _EBASH_EXCPETION_TYPE="Syntax"
+			@exception_
+		fi
+
 		if [[ "$2" == "=" ]] && [[ ! $(String.isNull "$3") ]]; then
 			export $1=$3
+			export varname=$1
+		elif [[ $(String.contains "$1" "=") ]]; then
+			String.split "$1" "=" vsplit
+			export ${vsplit[0]}=${vsplit[1]}
+			export varname=${vsplit[0]}
+			unset vsplit
 		else
 			export $1=$2
 		fi
 		declare -i $1
+		unset varname
 	fi
 }
 
