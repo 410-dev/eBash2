@@ -1,11 +1,6 @@
 
 *.DS_Store
 builds/*
-translator/sample.native/*
-translator/sample/*
-translator/bin/*
 *.jar
 .vscode/*
-translator/.vscode/settings.json
-translator/sample.native
-translator/sample
+translator/*
