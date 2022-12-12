@@ -6,4 +6,3 @@ function null() {
 	echo "$NULL"
 }
 
-export -f null

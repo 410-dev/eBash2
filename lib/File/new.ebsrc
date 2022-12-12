@@ -57,9 +57,9 @@ function File.append() {
 	fi
 }
 
-export -f File.newFile
-export -f File.createDirectory
-export -f File.overwrite
-export -f File.write
-export -f File.append
+
+
+
+
+
 

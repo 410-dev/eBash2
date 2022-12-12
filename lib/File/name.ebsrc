@@ -48,7 +48,6 @@ function File.getDirectoryOf()  {
 	fi
 }
 
-export -f File.getDirectoryOf
-export -f File.getName
-export -f File.getExtension
-export -f File.getFileName
+
+
+

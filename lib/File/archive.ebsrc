@@ -53,6 +53,6 @@ function File.decompress() {
 	fi
 }
 
-export -f File.decompress
-export -f File.compressAbsolutePathStructure
-export -f File.compress
+
+
+

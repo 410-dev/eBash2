@@ -11,9 +11,6 @@ export BLUE="\033[34m"
 export MAGENTA="\033[95m"
 export CYAN="\033[96m"
 
-function print() {
-	echo -ne "$@"
-}
 
 function println() {
 	echo -e "$@${C_DEFAULT}"
@@ -23,6 +20,3 @@ function updateLastLine() {
 	echo -ne "\r\033[0K$@"
 }
 
-export -f println
-export -f print
-export -f updateLastLine

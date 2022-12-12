@@ -37,6 +37,5 @@ function setSecureInputSalt() {
 	unset tmpBuffer
 }
 
-export -f input
-export -f secureInput
-export -f setSecureInputSalt
+
+

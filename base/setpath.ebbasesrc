@@ -33,5 +33,4 @@ function @setWorkingDirectoryInRelative() {
 	fi
 }
 
-export -f @setWorkingDirectoryInAbsolute
-export -f @setWorkingDirectoryInRelative
+

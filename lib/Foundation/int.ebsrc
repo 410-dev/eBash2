@@ -72,7 +72,7 @@ function divide() {
 	fi
 }
 
-function int() {
+function @int() {
 	if [[ $(String.isNull "$1") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
@@ -159,13 +159,12 @@ function isBackLesser() {
 	fi
 }
 
-export -f int
-export -f isFrontLesser
-export -f isFrontGreater
-export -f isBackLesser
-export -f isBackGreater
-export -f add
-export -f subtract
-export -f multiply
-export -f divide
-export -f increment
+
+
+
+
+
+
+
+
+

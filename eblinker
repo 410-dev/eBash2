@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Check if running in bash
-if [[ ! "$0" == "bash" ]]; then
-	echo "Warning: Seems you're not in bash environment."
-fi
+# if [[ ! "$0" == "bash" ]]; then
+# 	echo "Warning: Seems you're not in bash environment."
+# fi
 
 # Will return to parent working directory
 export ORIGH="$(pwd)"
 
 # Set the root directory for eBash
 if [[ -z "$EBHOME" ]]; then
-	export EBHOME="$(dirname "$0")"
+	export EBHOME="$(dirname "$(readlink -f "$0")")"
 elif [[ ! -z "$1" ]]; then
 	export EBHOME="$1"
 fi

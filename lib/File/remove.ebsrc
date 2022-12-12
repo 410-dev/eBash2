@@ -41,6 +41,5 @@ function File.remove() {
 	fi
 }
 
-export -f File.removeFile
-export -f File.removeDirectory
-export -f File.remove
+
+

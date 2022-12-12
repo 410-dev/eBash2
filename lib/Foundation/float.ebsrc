@@ -2,7 +2,7 @@
 
 @import Foundation/string
 
-function float() {
+function @float() {
 	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
 		export _EBASH_EXCEPTION="Float declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
@@ -32,7 +32,7 @@ function addf() {
 		export _EBASH_EXCPETION_TYPE="Syntax"
 		@exception_
 	else
-		export buffer=$(echo $1 + $2 | bc -l)
+		export buffer=$(echo ${1} + ${2} | bc -l)
 		if [[ ! $(String.isNull "$3") ]]; then
 			export $3=$buffer
 		else
@@ -133,12 +133,11 @@ function isBackFloatLesser() {
 	fi
 }
 
-export -f float
-export -f addf
-export -f subtractf
-export -f multiplyf
-export -f dividef
-export -f isFrontFloatGreater
-export -f isFrontFloatLesser
-export -f isBackFloatGreater
-export -f isBackFloatLesser
+
+
+
+
+
+
+
+

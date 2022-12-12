@@ -32,5 +32,4 @@ function Network.saveDocument() {
 	fi
 }
 
-export -f Network.getHTML
-export -f Network.saveDocument
+

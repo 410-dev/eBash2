@@ -26,4 +26,3 @@ function @exception_() {
 # }
 
 
-export -f @exception_

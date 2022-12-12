@@ -46,6 +46,5 @@ function File.rename() {
 	fi
 }
 
-export -f File.setHidden
-export -f File.relocate
-export -f File.rename
+
+

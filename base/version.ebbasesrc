@@ -12,4 +12,3 @@ declare -i EBVERSION_MAJOR
 declare -i EBVERSION_MINOR
 declare -i EBVERSION_REVISION
 
-export -f @version

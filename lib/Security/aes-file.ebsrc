@@ -56,5 +56,5 @@ function Security.AES256FileDecrypt() {
 	File.rename "$1.d" "$1" overwrite
 }
 
-export -f Security.AES256FileEncrypt
-export -f Security.AES256FileDecrypt
+
+
