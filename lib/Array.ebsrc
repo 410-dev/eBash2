@@ -18,17 +18,3 @@ function Array.reverse() {
         rev=("$i" "${rev[@]}")
     done
 }
-
-
-# Define a new array
-function @array() {
-	if [[ $(String.isNull "$1") ]]; then
-		syntaxException "Array - Syntax error: parameter not fully given. First parameter (Name) is required."
-	fi
-
-	if [[ $(String.isNull "$2") ]]; then
-		syntaxException "Array - Syntax error: parameter not fully given. Second parameter (Value) is required."
-	fi
-
-	declare -a $1=("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
-}
