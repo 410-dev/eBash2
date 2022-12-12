@@ -1,6 +1,0 @@
-
-function loop() {
-    for "$1" in {$2..$3}; do
-        "$4"
-    done
-}
