@@ -159,7 +159,26 @@ function isBackLesser() {
 	fi
 }
 
+function randomInt() {
+	# First parameter: minimum value
+	# Second parameter: maximum value
+	# Third parameter: variable name
 
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		export _EBASH_EXCEPTION="Random integer generation (Missing parameters)"
+		export _EBASH_EXCPETION_TYPE="Syntax"
+		@exception_
+	else
+		if [[ $(String.isNull "$3") ]]; then
+			export buffer=$(($RANDOM % $2 + $1))
+			echo $buffer
+		else
+			export buffer=$(($RANDOM % $2 + $1))
+			export $3=$buffer
+			declare -i $3
+		fi
+	fi
+}
 
 
 
