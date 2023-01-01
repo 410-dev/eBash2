@@ -72,6 +72,29 @@ function divide() {
 	fi
 }
 
+function modulus() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		export _EBASH_EXCEPTION="Modulus operation"
+		export _EBASH_EXCPETION_TYPE="Syntax"
+		@exception_
+	else
+		if [[ "$2" == 0 ]]; then
+			export _EBASH_EXCEPTION="Number cannot be divided by 0"
+			export _EBASH_EXCPETION_TYPE="Runtime"
+			@exception_
+		else
+			export buffer=$(($1 % $2))
+			if [[ ! $(String.isNull $3) ]]; then
+				export $3=$buffer
+				declare -i $3
+			else
+				echo $buffer
+			fi
+		fi
+	fi
+}
+
+
 function @int() {
 	if [[ $(String.isNull "$1") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
