@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 @import Foundation/string
 @import Foundation/exception

@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/zsh
 function @import() {
 	if [[ ! -z "$1" ]]; then
-		if [[ -f "${EBHOME}/lib/$1.ebsrc" ]]; then
-			source "${EBHOME}/lib/$1.ebsrc"
-		elif [[ -d "${EBHOME}/lib/$1" ]]; then
+		if [[ -f "${ZLANG_HOME}/lib/$1.ebsrc" ]]; then
+			source "${ZLANG_HOME}/lib/$1.ebsrc"
+		elif [[ -d "${ZLANG_HOME}/lib/$1" ]]; then
 			export WORKSPACE="$PWD"
-			cd "${EBHOME}/lib/$1"
+			cd "${ZLANG_HOME}/lib/$1"
 			while read DATAFILE
 			do
 				source "${DATAFILE}"

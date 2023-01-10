@@ -1,5 +1,5 @@
-#!/bin/bash
-export EBVERSION="2.0.0beta2-CE"
+#!/bin/zsh
+export EBVERSION="2.0.0beta3-CE"
 export EBVERSION_MAJOR=2
 export EBVERSION_MINOR=0
 export EBVERSION_REVISION=0

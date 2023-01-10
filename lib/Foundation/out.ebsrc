@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 export C_DEFAULT="\033[39m"
 export BLACK="\033[30m"

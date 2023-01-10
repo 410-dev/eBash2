@@ -23,20 +23,20 @@ The installer may have installed non-compatible version of eBash2, and may cause
 
 1. Download the current repository as zip file, and unpack it.
 2. Open /usr/local/eBash2 with Nautilus (Gnome) or Finder (macOS).
-3. Overwrite 'eblinker' file, 'base', 'lib' directories in /usr/local/eBash2 with the compatible version which is in current repository. If you are using zsh, please continue the instruction below. If you are running bash on linux, you may stop here.
+3. Overwrite 'zshlang-linker' file, 'base', 'lib' directories in /usr/local/eBash2 with the compatible version which is in current repository. If you are using zsh, please continue the instruction below. If you are running bash on linux, you may stop here.
 4. Open Terminal.
 5. Open ~/.zshrc with any text editor you want.
 6. Append the following code.
 ```bash
-export EBHOME="/usr/local/eBash2"
-if [[ -f "/usr/local/eBash2/eblinker" ]]; then source /usr/local/eBash2/eblinker; fi
+export ZLANG_HOME="/usr/local/eBash2"
+if [[ -f "/usr/local/eBash2/zshlang-linker" ]]; then source /usr/local/eBash2/zshlang-linker; fi
 ```
 7. Restart terminal
 8. Enjoy!
 
 If you are writing code, you MUST prepend this code to the script file in order to fully load eBash2 library.
 ```bash
-source $EBHOME/eblinker $EBHOME
+source $ZLANG_HOME/zshlang-linker $ZLANG_HOME
 ```
 
 
@@ -57,9 +57,9 @@ This feature is not supported in zsh-compatible eBash.
 The following code is the example of eBash 2. This code will automatically package the source code as a zip file for release tab.
 
 ```bash
-#!/bin/bash
+#!/bin/zsh
 
-source $EBHOME/eblinker $EBHOME
+source $ZLANG_HOME/zshlang-linker $ZLANG_HOME
 @import Foundation
 @import File
 @script

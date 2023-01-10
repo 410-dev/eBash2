@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 function @setWorkingDirectoryInAbsolute() {
 	if [[ ! -z "$1" ]]; then
 		if [[ -d "$1" ]]; then
