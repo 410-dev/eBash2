@@ -23,20 +23,20 @@ The installer may have installed non-compatible version of eBash2, and may cause
 
 1. Download the current repository as zip file, and unpack it.
 2. Open /usr/local/eBash2 with Nautilus (Gnome) or Finder (macOS).
-3. Overwrite 'zshlang-linker' file, 'base', 'lib' directories in /usr/local/eBash2 with the compatible version which is in current repository. If you are using zsh, please continue the instruction below. If you are running bash on linux, you may stop here.
+3. Overwrite 'zlang-linker' file, 'base', 'lib' directories in /usr/local/eBash2 with the compatible version which is in current repository. If you are using zsh, please continue the instruction below. If you are running bash on linux, you may stop here.
 4. Open Terminal.
 5. Open ~/.zshrc with any text editor you want.
 6. Append the following code.
 ```bash
 export ZLANG_HOME="/usr/local/eBash2"
-if [[ -f "/usr/local/eBash2/zshlang-linker" ]]; then source /usr/local/eBash2/zshlang-linker; fi
+if [[ -f "/usr/local/eBash2/zlang-linker" ]]; then source /usr/local/eBash2/zlang-linker; fi
 ```
 7. Restart terminal
 8. Enjoy!
 
 If you are writing code, you MUST prepend this code to the script file in order to fully load eBash2 library.
 ```bash
-source $ZLANG_HOME/zshlang-linker $ZLANG_HOME
+source $ZLANG_HOME/zlang-linker $ZLANG_HOME
 ```
 
 
@@ -59,7 +59,7 @@ The following code is the example of eBash 2. This code will automatically packa
 ```bash
 #!/bin/zsh
 
-source $ZLANG_HOME/zshlang-linker $ZLANG_HOME
+source $ZLANG_HOME/zlang-linker $ZLANG_HOME
 @import Foundation
 @import File
 @script
