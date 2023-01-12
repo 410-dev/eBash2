@@ -32,6 +32,6 @@ function File.isFile() {
 	fi
 }
 
-export -f File.exists
-export -f File.isDirectory
-export -f File.isFile
+
+
+

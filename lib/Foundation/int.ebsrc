@@ -72,7 +72,30 @@ function divide() {
 	fi
 }
 
-function int() {
+function modulus() {
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		export _EBASH_EXCEPTION="Modulus operation"
+		export _EBASH_EXCPETION_TYPE="Syntax"
+		@exception_
+	else
+		if [[ "$2" == 0 ]]; then
+			export _EBASH_EXCEPTION="Number cannot be divided by 0"
+			export _EBASH_EXCPETION_TYPE="Runtime"
+			@exception_
+		else
+			export buffer=$(($1 % $2))
+			if [[ ! $(String.isNull $3) ]]; then
+				export $3=$buffer
+				declare -i $3
+			else
+				echo $buffer
+			fi
+		fi
+	fi
+}
+
+
+function @int() {
 	if [[ $(String.isNull "$1") ]]; then
 		export _EBASH_EXCEPTION="Integer declaration"
 		export _EBASH_EXCPETION_TYPE="Syntax"
@@ -159,13 +182,31 @@ function isBackLesser() {
 	fi
 }
 
-export -f int
-export -f isFrontLesser
-export -f isFrontGreater
-export -f isBackLesser
-export -f isBackGreater
-export -f add
-export -f subtract
-export -f multiply
-export -f divide
-export -f increment
+function randomInt() {
+	# First parameter: minimum value
+	# Second parameter: maximum value
+	# Third parameter: variable name
+
+	if [[ $(String.isNull "$1") ]] || [[ $(String.isNull "$2") ]]; then
+		export _EBASH_EXCEPTION="Random integer generation (Missing parameters)"
+		export _EBASH_EXCPETION_TYPE="Syntax"
+		@exception_
+	else
+		if [[ $(String.isNull "$3") ]]; then
+			export buffer=$(($RANDOM % $2 + $1))
+			echo $buffer
+		else
+			export buffer=$(($RANDOM % $2 + $1))
+			export $3=$buffer
+			declare -i $3
+		fi
+	fi
+}
+
+
+
+
+
+
+
+

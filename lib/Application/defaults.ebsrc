@@ -34,5 +34,4 @@ function Application.getData() {
 	fi
 }
 
-export -f Application.setData
-export -f Application.getData
+

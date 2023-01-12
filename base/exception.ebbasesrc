@@ -24,6 +24,3 @@ function @exception_() {
 # 			$1       # This part is wrong
 # 		}
 # }
-
-
-export -f @exception_

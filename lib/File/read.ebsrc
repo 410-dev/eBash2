@@ -27,5 +27,4 @@ function File.readString() {
 	fi
 }
 
-export -f File.readStringData
-export -f File.readString
+

@@ -24,18 +24,3 @@ function @import() {
 	fi
 }
 
-function @importf() {
-	if [[ -f "$1" ]]; then
-		while read DATAFILE
-		do
-			@import "${DATAFILE}"
-		done <<< "$(cat "$1")"
-	else
-		export _EBASH_EXCEPTION="@importf: Missing list file"
-		export _EBASH_EXCPETION_TYPE="Runtime"
-		@exception_
-	fi
-}
-
-export -f @import
-export -f @importf

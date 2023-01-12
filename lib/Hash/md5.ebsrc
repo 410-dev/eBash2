@@ -22,5 +22,4 @@ function Hash.fileToMD5() {
 	fi
 }
 
-export -f Hash.stringToMD5
-export -f Hash.fileToMD5
+

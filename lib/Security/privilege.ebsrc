@@ -4,4 +4,3 @@ function Security.elevatePrivilege() {
 	NullAction.doNothing | sudo -s
 }
 
-export -f Security.elevatePrivilege

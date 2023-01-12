@@ -18,5 +18,3 @@ function Array.reverse() {
         rev=("$i" "${rev[@]}")
     done
 }
-
-export -f Array.reverse

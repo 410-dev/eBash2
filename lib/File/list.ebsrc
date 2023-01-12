@@ -10,4 +10,3 @@ function File.list() {
 	fi
 }
 
-export -f File.list

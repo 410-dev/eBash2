@@ -39,5 +39,5 @@ function File.copyDirectory() {
 	fi
 }
 
-export -f File.copyFile
-export -f File.copyDirectory
+
+

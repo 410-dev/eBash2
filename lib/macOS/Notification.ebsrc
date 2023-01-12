@@ -74,9 +74,8 @@ function MacOSNotification.display() {
 }
 
 
-export -f MacOSNotification.setMessage
-export -f MacOSNotification.setSubtitle
-export -f MacOSNotification.setTitle
-export -f MacOSNotification.setSoundName
-export -f MacOSNotification.clear
-export -f MacOSNotification.display
+
+
+
+
+

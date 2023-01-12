@@ -1,16 +1,26 @@
 #!/bin/bash
 
 # Check if running in bash
-if [[ ! "$0" == "bash" ]]; then
-	echo "Warning: Seems you're not in bash environment."
-fi
+# if [[ ! "$0" == "bash" ]]; then
+# 	echo "Warning: Seems you're not in bash environment."
+# fi
 
 # Will return to parent working directory
 export ORIGH="$(pwd)"
 
+if [[ -z "$BYPASS_EBASH_EOL" ]]; then
+	echo "!!!!WARNING!!!!"
+	echo "Your system has eBash2 installed, which is discontinued."
+	echo "If you wish, you may install Zlang instaed."
+	echo "For the safety, eBash2 linkage will not be loaded. If you wish to continue use eBash2, please set BYPASS_EBASH_EOL as non-null environment variable."
+	return 0
+fi
+
+echo "Loading eBash2 environment..."
+
 # Set the root directory for eBash
 if [[ -z "$EBHOME" ]]; then
-	export EBHOME="$(dirname "$0")"
+	export EBHOME="$(dirname "$(readlink -f "$0")")"
 elif [[ ! -z "$1" ]]; then
 	export EBHOME="$1"
 fi

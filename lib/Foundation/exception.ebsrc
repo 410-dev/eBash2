@@ -17,5 +17,4 @@ function runtimeException() {
 	fi
 }
 
-export -f syntaxException
-export -f runtimeException
+
