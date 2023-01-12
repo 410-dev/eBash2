@@ -10,6 +10,8 @@ function @version() {
 	if [[ "$EBVERSION" == *"-CE" ]]; then
 		echo "Warning: You are using a compatibility-enhanced version of eBash2. Some features may not work as expected, or may not be used."
 	fi
+	echo "!!!!WARNING!!!!"
+	echo "EBASH2 IS NO LONGER ACTIVELY MAINTAINED AND IS DISCONTINUED!"
 }
 
 declare -i EBVERSION_MAJOR
