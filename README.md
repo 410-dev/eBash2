@@ -2,6 +2,8 @@
 
 ### Easier Bash functions
 
+# This project is no longer maintained. Please use Zlang instead.
+
 ## WARNING: Linux and ZSH users
 eBash 2 is originally designed for bash on macOS. This branch (zsh-compatible) is currently experimental and may not run as fluently as bash on macOS using the one from master branch.
 
